@@ -20,4 +20,4 @@ Necesitas instalar python 3.7: https://www.python.org/downloads/release/python-3
 <br>
 <br>
 Cuando tengas el token del bot pegalo en el siguiente archivo:
-<a href="https://github.com/jose89fcb/candados-python-habbo/blob/main/configuracion.json">
+<a href="https://github.com/jose89fcb/candados-python-habbo/blob/main/configuracion.json">configuracion.json</a>
