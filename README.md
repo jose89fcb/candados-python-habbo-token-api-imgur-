@@ -1,5 +1,6 @@
 
 Comandos a usar:
+<br>
 Candado Halloween: <b>!kekoween ejemplo1 jemeplo2</b>
 <br>
 Candado se busca: <b>!kekosebusca ejemplo1 jemeplo2</b>
