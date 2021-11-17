@@ -14,3 +14,10 @@ Candado de amor: <b>!kekoamor ejemplo1 ejemplo2</b>
 Necesitas instalar python 3.7: https://www.python.org/downloads/release/python-370/
 
 #OBTEN UN TOKEN EN y un bot en: https://discord.com/developers/applications
+
+
+<br>
+<br>
+<br>
+Cuando tengas el token del bot pegalo en el siguiente archivo:
+<a href="https://github.com/jose89fcb/candados-python-habbo/blob/main/configuracion.json">
