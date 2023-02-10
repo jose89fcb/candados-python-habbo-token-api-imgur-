@@ -26,8 +26,12 @@ async def kekoamor(ctx,  keko1, keko2):
     response = requests.get(f"https://www.habbo.es/api/public/users?name={keko1}")
     response1 = requests.get(f"https://www.habbo.es/api/public/users?name={keko2}")
     
-    habbo = response.json()['figureString']
-    habbo1 = response1.json()['figureString']
+    try:
+
+     habbo = response.json()['figureString']
+     habbo1 = response1.json()['figureString']
+    except KeyError:
+        await ctx.send("Uno de los kekos no existe!")
 
    
     
@@ -35,47 +39,52 @@ async def kekoamor(ctx,  keko1, keko2):
     
     
    
+    try:
+
+     url = "https://www.habbo.com/habbo-imaging/avatarimage?size=l&figure="+ habbo +"&direction=2&head_direction=2"
+     img1 = Image.open(io.BytesIO(requests.get(url).content))
+     img1 = img1.resize((64,110), Image.ANTIALIAS)#tamaño del keko 1
     
-    url = "https://www.habbo.com/habbo-imaging/avatarimage?size=l&figure="+ habbo +"&direction=2&head_direction=2"
-    img1 = Image.open(io.BytesIO(requests.get(url).content))
-    img1 = img1.resize((64,110), Image.ANTIALIAS)#tamaño del keko 1
-    
-    url1 = "https://www.habbo.com/habbo-imaging/avatarimage?size=l&figure="+ habbo1 +"&direction=4&head_direction=2"
-    habbol = Image.open(io.BytesIO(requests.get(url1).content))
-    habbol = habbol.resize((64,110), Image.ANTIALIAS)#tamaño del keko 2
-    
-    
-    img2 = img1.copy()
+     url1 = "https://www.habbo.com/habbo-imaging/avatarimage?size=l&figure="+ habbo1 +"&direction=4&head_direction=2"
+     habbol = Image.open(io.BytesIO(requests.get(url1).content))
+     habbol = habbol.resize((64,110), Image.ANTIALIAS)#tamaño del keko 2
     
     
+     img2 = img1.copy()
     
-    img1 = Image.open(r"candados/candadoamor.png").convert("RGBA") #Imagen del candado de amor sant valentin
-    img1.paste(img2,(124,3), mask = img2) #Posicion del keko 1
+    
+    
+     img1 = Image.open(r"candados/candadoamor.png").convert("RGBA") #Imagen del candado de amor sant valentin
+     img1.paste(img2,(124,3), mask = img2) #Posicion del keko 1
     
     ###
     
 
-    img1.paste(habbol,(190,3), mask = habbol) #Posicion del keko 2
+     img1.paste(habbol,(190,3), mask = habbol) #Posicion del keko 2
     
   
-    draw = ImageDraw.Draw(img1)
-    font = ImageFont.truetype("fuentes/UbuntuRegular-latin.246ea4b3.otf", 13) #Tamaño de la fuente (textos)
+     draw = ImageDraw.Draw(img1)
+     font = ImageFont.truetype("fuentes/UbuntuRegular-latin.246ea4b3.otf", 13) #Tamaño de la fuente (textos)
 
-    draw.text((110, 120), f"Hasta que los pixels nos separen", font=font, fill=(101,36,97))  #Texto y color
+     draw.text((110, 120), f"Hasta que los pixels nos separen", font=font, fill=(101,36,97))  #Texto y color
     
     
-    fecha = time.strftime("%d/%m/%Y", time.gmtime()) #Fecha
-    draw.text((170, 150), f"{fecha}", font=font, fill=(101,36,97))
+     fecha = time.strftime("%d/%m/%Y", time.gmtime()) #Fecha
+     draw.text((170, 150), f"{fecha}", font=font, fill=(101,36,97))
 
 
-    draw.text((150, 175), f"{keko1}         {keko2}", font=font, fill=(101,36,97)) #Nombres de los kekos
+     draw.text((150, 175), f"{keko1}         {keko2}", font=font, fill=(101,36,97)) #Nombres de los kekos
     
     
-    with io.BytesIO() as image_binary:
+     with io.BytesIO() as image_binary:
         img1.save(image_binary, 'PNG')
         image_binary.seek(0)
 
         await ctx.send(file=discord.File(fp=image_binary, filename='keko.png'))
+    except UnboundLocalError:
+        
+        habbo1=":("
+        habbo=":("    
 
         ##TERMINA EL CÓDIGO DEL CANDADO DE HABBO AMOR
 
@@ -94,9 +103,16 @@ async def kekoween(ctx,  keko1, keko2):
     
     response = requests.get(f"https://www.habbo.es/api/public/users?name={keko1}")
     response1 = requests.get(f"https://www.habbo.es/api/public/users?name={keko2}")
-    
-    habbo = response.json()['figureString']
-    habbo1 = response1.json()['figureString']
+
+
+
+    try:
+
+     habbo = response.json()['figureString']
+
+     habbo1 = response1.json()['figureString']
+    except KeyError:
+        await ctx.send("Uno de los kekos no existe!") 
 
    
     
@@ -104,47 +120,52 @@ async def kekoween(ctx,  keko1, keko2):
     
     
    
+    try:
+
+     url = "https://www.habbo.com/habbo-imaging/avatarimage?size=l&figure="+ habbo +"&direction=2&head_direction=2"
+     img1 = Image.open(io.BytesIO(requests.get(url).content))
+     img1 = img1.resize((64,110), Image.ANTIALIAS)#tamaño del keko 1
     
-    url = "https://www.habbo.com/habbo-imaging/avatarimage?size=l&figure="+ habbo +"&direction=2&head_direction=2"
-    img1 = Image.open(io.BytesIO(requests.get(url).content))
-    img1 = img1.resize((64,110), Image.ANTIALIAS)#tamaño del keko 1
-    
-    url1 = "https://www.habbo.com/habbo-imaging/avatarimage?size=l&figure="+ habbo1 +"&direction=4&head_direction=2"
-    habbol = Image.open(io.BytesIO(requests.get(url1).content))
-    habbol = habbol.resize((64,110), Image.ANTIALIAS)#tamaño del keko 2
-    
-    
-    img2 = img1.copy()
+     url1 = "https://www.habbo.com/habbo-imaging/avatarimage?size=l&figure="+ habbo1 +"&direction=4&head_direction=2"
+     habbol = Image.open(io.BytesIO(requests.get(url1).content))
+     habbol = habbol.resize((64,110), Image.ANTIALIAS)#tamaño del keko 2
     
     
+     img2 = img1.copy()
     
-    img1 = Image.open(r"candados/candadoween.png").convert("RGBA") #Imagen del candado de amor sant valentin
-    img1.paste(img2,(118,3), mask = img2) #Posicion del keko 1
+    
+    
+     img1 = Image.open(r"candados/candadoween.png").convert("RGBA") #Imagen del candado de amor sant valentin
+     img1.paste(img2,(118,3), mask = img2) #Posicion del keko 1
     
     ###
     
 
-    img1.paste(habbol,(186,3), mask = habbol) #Posicion del keko 2
+     img1.paste(habbol,(186,3), mask = habbol) #Posicion del keko 2
     
   
-    draw = ImageDraw.Draw(img1)
-    font = ImageFont.truetype("fuentes/UbuntuRegular-latin.246ea4b3.otf", 13) #Tamaño de la fuente (textos)
+     draw = ImageDraw.Draw(img1)
+     font = ImageFont.truetype("fuentes/UbuntuRegular-latin.246ea4b3.otf", 13) #Tamaño de la fuente (textos)
 
-    draw.text((85, 130), f"Amigos hasta que la luz se apague", font=font, fill=(77,54,76))  #Texto y color
+     draw.text((85, 130), f"Amigos hasta que la luz se apague", font=font, fill=(77,54,76))  #Texto y color
     
     
-    fecha = time.strftime("%d/%m/%Y", time.gmtime()) #Fecha
-    draw.text((170, 150), f"{fecha}", font=font, fill=(77,54,76))
+     fecha = time.strftime("%d/%m/%Y", time.gmtime()) #Fecha
+     draw.text((170, 150), f"{fecha}", font=font, fill=(77,54,76))
 
 
-    draw.text((150, 175), f"{keko1}         {keko2}", font=font, fill=(101,24,96)) #Nombres de los kekos
+     draw.text((150, 175), f"{keko1}         {keko2}", font=font, fill=(101,24,96)) #Nombres de los kekos
     
     
-    with io.BytesIO() as image_binary:
+     with io.BytesIO() as image_binary:
         img1.save(image_binary, 'PNG')
         image_binary.seek(0)
 
         await ctx.send(file=discord.File(fp=image_binary, filename='keko.png'))  
+    except UnboundLocalError:
+        
+        habbo1=":("
+        habbo=":("    
         ##TERMINA EL CÓDIGO DEL CANDADO DE HABBOWEEN
 
         ####### COMIENZA EL CÓDIGO DEL CANDADO DE SE BUSCA 
@@ -159,9 +180,14 @@ async def kekosebusca(ctx,  keko1, keko2):
     
     response = requests.get(f"https://www.habbo.es/api/public/users?name={keko1}")
     response1 = requests.get(f"https://www.habbo.es/api/public/users?name={keko2}")
+
+    try:
+
     
-    habbo = response.json()['figureString']
-    habbo1 = response1.json()['figureString']
+     habbo = response.json()['figureString']
+     habbo1 = response1.json()['figureString']
+    except KeyError:
+        await ctx.send("Uno de los kekos no existe!") 
 
    
     
@@ -169,48 +195,54 @@ async def kekosebusca(ctx,  keko1, keko2):
     
     
    
+    try:
+
+     url = "https://www.habbo.com/habbo-imaging/avatarimage?size=l&figure="+ habbo +"&direction=2&head_direction=2"
+     img1 = Image.open(io.BytesIO(requests.get(url).content))
+     img1 = img1.resize((64,110), Image.ANTIALIAS)#tamaño del keko 1
     
-    url = "https://www.habbo.com/habbo-imaging/avatarimage?size=l&figure="+ habbo +"&direction=2&head_direction=2"
-    img1 = Image.open(io.BytesIO(requests.get(url).content))
-    img1 = img1.resize((64,110), Image.ANTIALIAS)#tamaño del keko 1
-    
-    url1 = "https://www.habbo.com/habbo-imaging/avatarimage?size=l&figure="+ habbo1 +"&direction=4&head_direction=2"
-    habbol = Image.open(io.BytesIO(requests.get(url1).content))
-    habbol = habbol.resize((64,110), Image.ANTIALIAS)#tamaño del keko 2
-    
-    
-    img2 = img1.copy()
+     url1 = "https://www.habbo.com/habbo-imaging/avatarimage?size=l&figure="+ habbo1 +"&direction=4&head_direction=2"
+     habbol = Image.open(io.BytesIO(requests.get(url1).content))
+     habbol = habbol.resize((64,110), Image.ANTIALIAS)#tamaño del keko 2
     
     
+     img2 = img1.copy()
     
-    img1 = Image.open(r"candados/candadosebusca.png").convert("RGBA") #Imagen del candado de amor sant valentin
-    img1.paste(img2,(118,3), mask = img2) #Posicion del keko 1
+    
+    
+     img1 = Image.open(r"candados/candadosebusca.png").convert("RGBA") #Imagen del candado de amor sant valentin
+     img1.paste(img2,(118,3), mask = img2) #Posicion del keko 1
     
     ###
     
 
-    img1.paste(habbol,(186,3), mask = habbol) #Posicion del keko 2
+     img1.paste(habbol,(186,3), mask = habbol) #Posicion del keko 2
     
   
-    draw = ImageDraw.Draw(img1)
-    font = ImageFont.truetype("fuentes/UbuntuRegular-latin.246ea4b3.otf", 13) #Tamaño de la fuente (textos)
+     draw = ImageDraw.Draw(img1)
+     font = ImageFont.truetype("fuentes/UbuntuRegular-latin.246ea4b3.otf", 13) #Tamaño de la fuente (textos)
 
-    draw.text((110, 130), f"Compañeros del crimen", font=font, fill=(77,54,76))  #Texto y color
+     draw.text((110, 130), f"Compañeros del crimen", font=font, fill=(77,54,76))  #Texto y color
     
     
-    fecha = time.strftime("%d/%m/%Y", time.gmtime()) #Fecha
-    draw.text((168, 150), f"{fecha}", font=font, fill=(77,54,76))
+     fecha = time.strftime("%d/%m/%Y", time.gmtime()) #Fecha
+     draw.text((168, 150), f"{fecha}", font=font, fill=(77,54,76))
 
 
  
-    draw.text((150, 175), f"{keko1}     {keko2}", font=font, fill=(98,46,84)) #Nombres de los kekos
+     draw.text((150, 175), f"{keko1}     {keko2}", font=font, fill=(98,46,84)) #Nombres de los kekos
     
     
-    with io.BytesIO() as image_binary:
+     with io.BytesIO() as image_binary:
         img1.save(image_binary, 'PNG')
         image_binary.seek(0)
 
-        await ctx.send(file=discord.File(fp=image_binary, filename='keko.png')) 
+        await ctx.send(file=discord.File(fp=image_binary, filename='keko.png'))
+    except UnboundLocalError:
+        
+        habbo1=":("
+        habbo=":("
+
          
 
          
