@@ -1,4 +1,4 @@
-Para usar el bot para que suba la imagen a imgur debes de usar el bot https://github.com/jose89fcb/candados-python-habbo-token-api-imgur-/blob/main/Habbo%20candado.py
+Para usar el bot para que suba la imagen a imgur debes de usar el bot https://github.com/jose89fcb/candados-python-habbo-token-api-imgur-/blob/main/candados%20Slash.py
 
 Sólo falta que añadas tú el token 👇
 
